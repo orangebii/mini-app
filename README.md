@@ -1,24 +1,13 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Não tive dificuldades com o uso das gems.
 
-Things you may want to cover:
+Login:
+	Feito com Devise;
+	Usuario logado tem acesso a tudo;
+	Para criar, editar e excluir lista/tarefas é pedido que realize login ou crie uma conta;
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Listas de tarefas:
+	Feito com nested attributes e dynamic input fields;
+	Se excluir a lista, exclui as tarefas;
+	Se incluir varias tarefas elas não são salvas;
