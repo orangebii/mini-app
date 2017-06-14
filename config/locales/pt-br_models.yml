@@ -1,0 +1,27 @@
+"pt-BR":
+  activerecord:
+    models:
+      list: Lista
+      task: Tarefas
+      list_favorites: Listas Favoritas
+
+    attributes:
+      list:
+        id: "Código"
+        name: "Nome da Lista"
+        is_public: "Lista Pública?"
+        created_at: "Criado em"
+        updated_at: "Atualizado em"
+
+      task:
+        id: "Código"
+        name: "Nome da Tarefa"
+        body: "Informações"
+        list_id: "Código da Lista"
+        created_at: "Criado em"
+        updated_at: "Atualizado em"
+
+      list_favorites:
+        id: "Código"
+        listId: "Código da lista"
+        user: "Código do usuário"

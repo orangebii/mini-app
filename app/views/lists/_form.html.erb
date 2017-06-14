@@ -1,0 +1,68 @@
+<%= form_for @list, :html => { :class => "form-horizontal list" } do |f| %>
+
+  <% if @list.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@list.errors.count, "error") %> prohibited this list from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @list.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+    <div class="field">
+      <%= f.label :name %>
+      <%= f.text_field :name, id: :list_name, :required => true%>
+    </div>
+
+
+        <script >
+          function teste(){
+            $("#poll_choices").append($("#new_choice_form").html())}
+        </script>
+
+    <a href="javascript:;" onclick="teste()">Adicionar Tarefa </a>
+
+    <div id="poll_choices"></div>
+    <div style="display: none;" id="new_choice_form">
+    <%= f.fields_for :task do |ff| %>
+      <div class="field">
+        <%= ff.label :name %>
+        <%= ff.text_field :name, id: :task_name %>
+      </div>
+
+      <div class="field">
+        <%= ff.label :body %>
+        <%= ff.text_area :body, id: :task_body %>
+      </div>
+    <% end %>
+    </div>
+
+
+    <div class="field">
+      <%= f.label :is_public %>
+      <%= f.check_box :is_public, id: :is_public %>
+    </div>
+
+    <%= f.hidden_field :id_user, id: :list_id_user, :value => current_user.id%>
+    <!--<%= f.hidden_field_tag :id_user, current_user.id%> -->
+
+  <!-- FAZER UM FOR PARA ADD MAIS TAREFS E O FAVORITAR E PRIVATE LIST-
+    <div>
+    <%= check_box("Lista privada", {checked: true}) %>
+  </div-->
+
+  <div class="form-group">
+    <div class="col-lg-offset-2 col-lg-10">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                lists_path, :class => 'btn btn-default' %>
+    </div>
+  </div>
+
+<% end %>

@@ -1,0 +1,27 @@
+<%= form_with(model: list_favorite, local: true) do |form| %>
+  <% if list_favorite.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(list_favorite.errors.count, "error") %> prohibited this list_favorite from being saved:</h2>
+
+      <ul>
+      <% list_favorite.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :id_list_id %>
+    <%= form.text_field :id_list_id, id: :list_favorite_id_list_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :id_user_id %>
+    <%= form.text_field :id_user_id, id: :list_favorite_id_user_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
